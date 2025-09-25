@@ -10,7 +10,9 @@ Un asistente virtual interactivo para consultas de consumo eléctrico en Chile, 
 
 🌐 **Live Demo**: [https://karlarehren.github.io/eco-ahorro-chile-react/](https://karlarehren.github.io/eco-ahorro-chile-react/)
 
-> La aplicación se despliega automáticamente en GitHub Pages cuando se realizan cambios en la rama main.
+> La aplicación se despliega automáticamente en GitHub Pages cuando se realizan cambios en la rama main. 
+> 
+> **Nota**: Si es la primera vez, activa GitHub Pages en Settings → Pages → Source: GitHub Actions
 
 ## 📸 Screenshots
 
