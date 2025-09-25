@@ -1,6 +1,18 @@
-# Eco Ahorro Chile - Asistente Virtual React
+# 🇨🇱⚡ Eco Ahorro Chile - Asistente Virtual React
 
-Un asistente virtual interactivo para consultas de consumo eléctrico en Chile, ahora desarrollado con React.
+[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.0.8-646CFF.svg)](https://vitejs.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Un asistente virtual interactivo para consultas de consumo eléctrico en Chile, desarrollado con React y tecnologías modernas.
+
+## 🎯 Demo
+
+> **Nota**: Para ver la aplicación en funcionamiento, clona el repositorio y sigue las instrucciones de instalación.
+
+## 📸 Screenshots
+
+*La aplicación incluye una interfaz moderna y responsiva con chat interactivo y consultas especializadas.*
 
 ## 🚀 Características
 
