@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // For GitHub Pages compatibility
+  base: '/eco-ahorro-chile-react/', // GitHub Pages base path
   build: {
     outDir: 'dist'
   },
