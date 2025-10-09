@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import ActionButtons from './components/ActionButtons';
-import ChatArea from './components/ChatArea';
-import InputSection from './components/InputSection';
-import Sidebar from './components/Sidebar';
-import ConsultaModal from './components/ConsultaModal';
-import { getResponse } from './utils/database';
+import React, { useEffect } from 'react';
+// Importaciones modulares
+import { Header, Sidebar } from './modules/layout';
+import { ActionButtons, ChatArea, InputSection } from './modules/chat';
+import { ConsultaModal } from './modules/consultation';
+// Hooks personalizados
+import { useChat, useModal } from './hooks';
+// Constantes
+import { APP_CONFIG } from './constants';
 
 function App() {
-  const [messages, setMessages] = useState([]);
-  const [isTyping, setIsTyping] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Usar hooks personalizados
+  const { messages, isTyping, addMessage, sendMessage, processQuery } = useChat();
+  const { isOpen: isModalOpen, openModal, closeModal } = useModal();
 
-  // Initial welcome message
+  // Mensaje de bienvenida inicial
   useEffect(() => {
     const timer = setTimeout(() => {
       addMessage(
@@ -22,47 +23,21 @@ function App() {
     }, 800);
 
     return () => clearTimeout(timer);
-  }, []);
-
-  const addMessage = (text, sender) => {
-    setMessages(prev => [...prev, { text, sender }]);
-  };
-
-  const processQuery = (query) => {
-    setIsTyping(true);
-    
-    setTimeout(() => {
-      setIsTyping(false);
-      const responses = getResponse(query);
-      
-      if (responses === 'modal') {
-        setIsModalOpen(true);
-      } else {
-        const responseArray = Array.isArray(responses) ? responses : [responses];
-        responseArray.forEach(response => {
-          addMessage(response, 'bot');
-        });
-      }
-    }, 1200 + Math.random() * 800);
-  };
+  }, [addMessage]);
 
   const handleSendMessage = (message) => {
-    addMessage(message, 'user');
-    processQuery(message);
+    const result = sendMessage(message);
+    if (result === 'modal') {
+      openModal();
+    }
   };
 
   const handleButtonClick = (buttonText, query) => {
     addMessage(buttonText, 'user');
-    processQuery(query);
-  };
-
-  const handleConsultaClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-    document.body.style.overflow = 'auto';
+    const result = processQuery(query);
+    if (result === 'modal') {
+      openModal();
+    }
   };
 
   const handleConsultaSubmit = (formData) => {
@@ -79,18 +54,8 @@ function App() {
       addMessage(confirmationMessage, 'bot');
     }, 1000);
     
-    setIsModalOpen(false);
-    document.body.style.overflow = 'auto';
+    closeModal();
   };
-
-  // Handle modal opening effect
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [isModalOpen]);
 
   return (
     <div className="main-container">
@@ -99,7 +64,7 @@ function App() {
         <div className="chat-column">
           <ActionButtons 
             onButtonClick={handleButtonClick}
-            onConsultaClick={handleConsultaClick}
+            onConsultaClick={openModal}
           />
           <ChatArea 
             messages={messages}
@@ -111,7 +76,7 @@ function App() {
       </div>
       <ConsultaModal
         isOpen={isModalOpen}
-        onClose={handleModalClose}
+        onClose={closeModal}
         onSubmit={handleConsultaSubmit}
       />
     </div>

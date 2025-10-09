@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatText } from '../utils/database';
+import { formatText } from '../../utils/database';
 
 const Message = ({ text, sender }) => {
   return (
