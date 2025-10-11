@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../../styles/components/InputSection.module.css';
+import styles from './InputSection.module.css';
 
 const InputSection = ({ onSendMessage }) => {
   const [message, setMessage] = useState('');

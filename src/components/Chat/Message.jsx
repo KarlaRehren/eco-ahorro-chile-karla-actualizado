@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatText } from '../../utils/database';
-import styles from '../../styles/components/Message.module.css';
+import styles from './Message.module.css';
 
 const Message = ({ text, sender }) => {
   const messageClass = sender === 'user' ? styles.userMessage : styles.botMessage;

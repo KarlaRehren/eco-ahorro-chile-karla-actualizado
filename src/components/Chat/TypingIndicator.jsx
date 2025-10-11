@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/components/TypingIndicator.module.css';
+import styles from './TypingIndicator.module.css';
 
 const TypingIndicator = ({ isVisible }) => {
   if (!isVisible) return null;

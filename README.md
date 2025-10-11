@@ -68,24 +68,34 @@ npm run preview
 
 ```
 src/
-├── components/           # Componentes React (vacío - usando módulos)
-├── modules/             # Módulos organizados por funcionalidad
-│   ├── layout/          # Header, Sidebar
-│   ├── chat/            # Chat, Mensajes, Input
-│   └── consultation/    # Modal de consulta
+├── components/          # 🆕 COMPONENTES ORGANIZADOS (Patrón profesional)
+│   ├── index.js         # Exportaciones principales
+│   ├── Layout/          # Componentes de diseño
+│   │   ├── Header.jsx
+│   │   ├── Header.module.css
+│   │   ├── Sidebar.jsx
+│   │   ├── Sidebar.module.css
+│   │   └── index.js
+│   ├── Chat/            # Componentes de chat
+│   │   ├── ActionButtons.jsx + .module.css
+│   │   ├── ChatArea.jsx + .module.css
+│   │   ├── InputSection.jsx + .module.css
+│   │   ├── Message.jsx + .module.css
+│   │   ├── TypingIndicator.jsx + .module.css
+│   │   └── index.js
+│   └── Consultation/    # Componentes de consulta
+│       ├── ConsultaModal.jsx + .module.css
+│       └── index.js
 ├── hooks/               # Hooks personalizados
 │   ├── useChat.js       # Lógica del chat
 │   └── useModal.js      # Lógica de modales
 ├── constants/           # Constantes de la aplicación
-├── styles/              # 🆕 CSS MODULAR ORGANIZADO
-│   ├── index.js         # Importación central de estilos
+├── styles/              # CSS GLOBAL (solo base y utilidades)
+│   ├── index.js         # Importación de estilos globales
 │   ├── variables.css    # Variables CSS globales
 │   ├── main.css         # Utilidades y estilos especiales
-│   └── modules/         # Módulos CSS específicos
-│       ├── comunes.css  # Base, reset y utilidades
-│       ├── layout.css   # Header, sidebar, estructura
-│       ├── chat.css     # Chat, mensajes, input
-│       └── consulta.css # Modal y formularios
+│   └── modules/
+│       └── comunes.css  # Base, reset y utilidades compartidas
 ├── utils/
 │   └── database.js      # Base de datos de respuestas
 ├── App.jsx              # Componente principal
@@ -134,12 +144,13 @@ Los colores y variables principales se definen en `src/styles/variables.css`:
 }
 ```
 
-### CSS Modular
-- **Variables**: `src/styles/variables.css` - Colores, espaciado, tipografía
-- **Layout**: `src/styles/modules/layout.css` - Header, sidebar, estructura
-- **Chat**: `src/styles/modules/chat.css` - Mensajes, input, botones
-- **Modal**: `src/styles/modules/consulta.css` - Formularios y modales
-- **Base**: `src/styles/modules/comunes.css` - Reset, utilidades comunes
+### CSS Modules & Estilos
+- **Variables Globales**: `src/styles/variables.css` - Colores, espaciado, tipografía
+- **CSS Modules**: Cada componente tiene su archivo `.module.css` co-localizado
+- **Layout**: `src/components/Layout/*.module.css` - Estilos de Header y Sidebar  
+- **Chat**: `src/components/Chat/*.module.css` - Estilos de cada componente de chat
+- **Consulta**: `src/components/Consultation/*.module.css` - Estilos del modal
+- **Base Común**: `src/styles/modules/comunes.css` - Reset y utilidades compartidas
 
 ### Agregar Nuevas Respuestas
 Edita `src/utils/database.js` para agregar nuevos temas o respuestas.
@@ -161,10 +172,12 @@ Edita `src/utils/database.js` para agregar nuevos temas o respuestas.
 - ✅ Modal de consultas funcionando
 - ✅ Diseño responsivo mantenido
 
-### 🆕 Mejoras de Arquitectura CSS (v2.0):
-- ✅ **CSS Modular**: Separación de ~6000 líneas en módulos organizados
+### 🆕 Mejoras de Arquitectura (v3.0):
+- ✅ **CSS Modules**: Estilos encapsulados por componente (eliminación de conflictos)
+- ✅ **Estructura Profesional**: Patrón de componentes estándar de la industria
+- ✅ **Eliminación de Duplicados**: ~476 líneas de CSS duplicado removidas
+- ✅ **Co-localización**: Cada componente con su archivo CSS al lado
 - ✅ **Variables CSS**: Colores, espaciado y tipografía centralizados
-- ✅ **Eliminación de Duplicación**: Código CSS reutilizable
 - ✅ **Mantenibilidad**: Fácil localización y modificación de estilos
 - ✅ **Escalabilidad**: Estructura preparada para crecimiento
 - ✅ **Performance**: Optimización de carga con Vite

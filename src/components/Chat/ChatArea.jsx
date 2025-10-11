@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Message from './Message';
 import TypingIndicator from './TypingIndicator';
-import styles from '../../styles/components/ChatArea.module.css';
+import styles from './ChatArea.module.css';
 
 const ChatArea = ({ messages, isTyping }) => {
   const messagesEndRef = useRef(null);
