@@ -1,10 +1,16 @@
 import React from 'react';
 import { formatText } from '../../utils/database';
+import styles from '../../styles/components/Message.module.css';
 
 const Message = ({ text, sender }) => {
+  const messageClass = sender === 'user' ? styles.userMessage : styles.botMessage;
+  
   return (
-    <div className={`message ${sender}-message`}>
-      <div dangerouslySetInnerHTML={{ __html: formatText(text) }} />
+    <div className={`${styles.message} ${messageClass}`}>
+      <div 
+        className={styles.content}
+        dangerouslySetInnerHTML={{ __html: formatText(text) }} 
+      />
     </div>
   );
 };

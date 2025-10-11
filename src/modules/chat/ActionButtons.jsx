@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../../styles/components/ActionButtons.module.css';
 
 const ActionButtons = ({ onButtonClick, onConsultaClick }) => {
   const buttons = [
@@ -19,11 +20,11 @@ const ActionButtons = ({ onButtonClick, onConsultaClick }) => {
   };
 
   return (
-    <div className="buttons-section">
+    <div className={styles.buttonsSection}>
       {buttons.map((button, index) => (
         <button
           key={index}
-          className="action-btn"
+          className={`${styles.actionButton} ${button.query === 'consulta gratuita' ? styles.consultaButton : ''}`}
           onClick={() => handleButtonClick(button)}
         >
           {button.text}

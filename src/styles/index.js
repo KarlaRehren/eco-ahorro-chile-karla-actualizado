@@ -2,14 +2,24 @@
    INDEX CSS - IMPORTACIÓN MODULAR DE TODOS LOS ESTILOS
    ========================================================================== */
 
-// Importar variables y estilos base primero
+// 1. Importar variables y estilos base primero
 import './variables.css';
 import './modules/comunes.css';
 
-// Importar módulos específicos
+// 2. Importar módulos de funcionalidad general
 import './modules/layout.css';
 import './modules/chat.css';
 import './modules/consulta.css';
 
-// Importar estilos adicionales
+// 3. Importar módulos específicos de componentes (CSS Modules)
+import './components/Header.module.css';
+import './components/Sidebar.module.css';
+import './components/ChatArea.module.css';
+import './components/Message.module.css';
+import './components/ActionButtons.module.css';
+import './components/InputSection.module.css';
+import './components/TypingIndicator.module.css';
+import './components/ConsultaModal.module.css';
+
+// 4. Importar estilos adicionales y utilidades
 import './main.css';

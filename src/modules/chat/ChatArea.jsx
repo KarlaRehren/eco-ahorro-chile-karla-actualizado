@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Message from './Message';
 import TypingIndicator from './TypingIndicator';
+import styles from '../../styles/components/ChatArea.module.css';
 
 const ChatArea = ({ messages, isTyping }) => {
   const messagesEndRef = useRef(null);
@@ -14,8 +15,8 @@ const ChatArea = ({ messages, isTyping }) => {
   }, [messages, isTyping]);
 
   return (
-    <div className="chat-area">
-      <div className="messages">
+    <div className={styles.chatArea}>
+      <div className={styles.messages}>
         {messages.map((message, index) => (
           <Message
             key={index}

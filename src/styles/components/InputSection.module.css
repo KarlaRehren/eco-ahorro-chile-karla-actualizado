@@ -1,0 +1,225 @@
+/* ==========================================================================
+   INPUT SECTION MODULE - Estilos específicos para el componente InputSection
+   ========================================================================== */
+
+.inputSection {
+  padding: var(--spacing-md);
+  background: var(--bg);
+  border-top: 2px solid var(--border);
+  box-shadow: 0 -2px 4px var(--shadow);
+}
+
+.inputContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.textInput {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  padding-right: 3rem;
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  font-size: var(--font-size-base);
+  transition: var(--transition-fast);
+  font-family: var(--font-family);
+  background: var(--white);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.textInput::placeholder {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.textInput:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--border-focus);
+  outline: none;
+  background: var(--white);
+}
+
+.textInput:disabled {
+  background: #f5f5f5;
+  color: var(--disabled);
+  cursor: not-allowed;
+}
+
+/* Contador de caracteres */
+.charCounter {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.charCounter.warning {
+  color: #ff9800;
+}
+
+.charCounter.error {
+  color: #f44336;
+}
+
+/* Botón de envío */
+.sendButton {
+  width: 45px;
+  height: 45px;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius-round);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  font-size: var(--font-size-lg);
+  box-shadow: 0 2px 8px rgba(27, 94, 32, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.sendButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.sendButton:hover {
+  background: var(--accent-hover);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(27, 94, 32, 0.4);
+}
+
+.sendButton:hover::before {
+  opacity: 1;
+}
+
+.sendButton:active {
+  transform: scale(0.95);
+}
+
+.sendButton:disabled {
+  background: var(--disabled);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.sendButton:disabled::before {
+  display: none;
+}
+
+/* Iconos del botón */
+.sendIcon {
+  transition: transform var(--transition-fast);
+}
+
+.sendButton:hover .sendIcon {
+  transform: translateX(2px);
+}
+
+/* Estados especiales */
+.typing {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(27, 94, 32, 0.1);
+}
+
+.error {
+  border-color: #f44336;
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.1);
+}
+
+/* Sugerencias de entrada */
+.suggestions {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 60px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 -4px 12px var(--shadow);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+  transform: translateY(-100%);
+}
+
+.suggestion {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--transition-fast);
+}
+
+.suggestion:last-child {
+  border-bottom: none;
+}
+
+.suggestion:hover {
+  background: var(--bg);
+}
+
+.suggestion.selected {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .inputSection {
+    padding: 0.5rem;
+  }
+  
+  .inputContainer {
+    gap: 8px;
+  }
+  
+  .textInput {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .sendButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .charCounter {
+    right: 55px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .inputSection {
+    padding: 1.2rem;
+  }
+  
+  .textInput {
+    padding: 1rem 1.2rem;
+    font-size: 1.05rem;
+  }
+  
+  .sendButton {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}

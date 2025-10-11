@@ -1,0 +1,161 @@
+/* ==========================================================================
+   ACTION BUTTONS MODULE - Estilos específicos para el componente ActionButtons
+   ========================================================================== */
+
+.buttonsSection {
+  padding: var(--spacing-md);
+  background: var(--bg);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.actionButton {
+  background: var(--primary);
+  color: var(--white);
+  border: 2px solid var(--primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 20px;
+  padding: 0.8rem;
+  min-height: 50px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(2, 136, 209, 0.2);
+}
+
+.actionButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.actionButton:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 136, 209, 0.3);
+}
+
+.actionButton:hover::before {
+  left: 100%;
+}
+
+.actionButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(2, 136, 209, 0.2);
+}
+
+.actionButton:disabled {
+  background: var(--disabled);
+  border-color: var(--disabled);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.actionButton:disabled::before {
+  display: none;
+}
+
+/* Botón especial para consulta */
+.consultaButton {
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+  position: relative;
+}
+
+.consultaButton::after {
+  content: '📋';
+  margin-left: 0.5rem;
+}
+
+.consultaButton:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+/* Estados de carga */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+  position: relative;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Efectos hover grupales */
+.buttonsSection:hover .actionButton:not(:hover) {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .buttonsSection {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .actionButton {
+    min-height: 45px;
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .buttonsSection {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .buttonsSection {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .buttonsSection {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 1.2rem;
+  }
+  
+  .actionButton {
+    min-height: 55px;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}

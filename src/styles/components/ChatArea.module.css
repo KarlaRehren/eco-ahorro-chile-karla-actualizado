@@ -1,0 +1,108 @@
+/* ==========================================================================
+   CHAT AREA MODULE - Estilos específicos para el componente ChatArea
+   ========================================================================== */
+
+.chatArea {
+  flex: 1;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  position: relative;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding-bottom: 0.7rem;
+  scroll-behavior: smooth;
+}
+
+.messagesContainer {
+  min-height: 0;
+  flex: 1;
+}
+
+/* Efectos de scroll suave */
+.messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: var(--border);
+  border-radius: 4px;
+  margin: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 4px;
+  border: 1px solid var(--bg);
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Estados del chat */
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--text-secondary);
+  font-style: italic;
+  gap: var(--spacing-md);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+.emptyText {
+  font-size: var(--font-size-lg);
+  text-align: center;
+}
+
+/* Animaciones */
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.messageEntering {
+  animation: messageAppear 0.4s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .chatArea {
+    padding: 0.5rem;
+  }
+  
+  .messages {
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .chatArea {
+    padding: 1.5rem;
+  }
+  
+  .messages {
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+}

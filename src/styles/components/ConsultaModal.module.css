@@ -1,0 +1,314 @@
+/* ==========================================================================
+   CONSULTA MODAL MODULE - Estilos específicos para el componente ConsultaModal
+   ========================================================================== */
+
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: var(--z-modal);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--modal-overlay);
+  backdrop-filter: blur(3px);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.modalContent {
+  margin: 4% auto;
+  width: 95%;
+  max-width: 500px;
+  border-radius: var(--border-radius-large);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  background: var(--white);
+  animation: modalSlideIn 0.4s ease-out;
+  position: relative;
+}
+
+.modalContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+/* Header del modal */
+.modalHeader {
+  background: var(--accent);
+  color: var(--white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modalTitle::before {
+  content: '📋';
+  font-size: 1.2rem;
+}
+
+.closeButton {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  background: none;
+  border: none;
+  color: var(--white);
+  padding: 0.2rem;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  color: #F9A825;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+/* Cuerpo del modal */
+.modalBody {
+  padding: 1.5rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* Formulario */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.formGroup {
+  margin-bottom: var(--spacing-md);
+}
+
+.formGroup.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  position: relative;
+}
+
+.required::after {
+  content: ' *';
+  color: #f44336;
+  font-weight: bold;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+  font-family: var(--font-family);
+  background: var(--white);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.1);
+  background: var(--white);
+}
+
+.input:invalid,
+.select:invalid,
+.textarea:invalid {
+  border-color: #f44336;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: var(--font-family);
+}
+
+/* Botón de envío */
+.submitButton {
+  width: 100%;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  padding: 0.9rem 1.2rem;
+  border-radius: 8px;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  margin-top: var(--spacing-md);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(27, 94, 32, 0.3);
+}
+
+.submitButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.submitButton:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(27, 94, 32, 0.4);
+}
+
+.submitButton:hover::before {
+  left: 100%;
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  background: var(--disabled);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.submitButton:disabled::before {
+  display: none;
+}
+
+/* Estados de validación */
+.formGroup.error .input,
+.formGroup.error .select,
+.formGroup.error .textarea {
+  border-color: #f44336;
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.1);
+}
+
+.formGroup.success .input,
+.formGroup.success .select,
+.formGroup.success .textarea {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+
+.errorMessage {
+  color: #f44336;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.errorMessage::before {
+  content: '⚠️';
+  font-size: 0.7rem;
+}
+
+/* Animaciones */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .modalContent {
+    width: 98%;
+    margin: 2% auto;
+    max-height: 95vh;
+  }
+  
+  .modalHeader {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .modalBody {
+    padding: var(--spacing-md);
+    max-height: 60vh;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .modalTitle {
+    font-size: var(--font-size-base);
+  }
+  
+  .closeButton {
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modalContent {
+    max-width: 600px;
+  }
+  
+  .modalBody {
+    padding: 2rem;
+  }
+  
+  .formRow {
+    gap: 1.2rem;
+  }
+}
