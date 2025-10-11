@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
-// Importaciones modulares siguiendo el patrón de tu compañero
-import { Header, Sidebar } from './components/Layout';
-import { ActionButtons, ChatArea, InputSection } from './components/Chat';
-import { ConsultaModal } from './components/Consultation';
+// Importaciones directas siguiendo el patrón del compañero (sin index.js)
+import Header from './components/Layout/Header';
+import Sidebar from './components/Layout/Sidebar';
+import ActionButtons from './components/Chat/ActionButtons';
+import ChatArea from './components/Chat/ChatArea';
+import InputSection from './components/Chat/InputSection';
+import ConsultaModal from './components/Consultation/ConsultaModal';
 // Hooks personalizados
 import { useChat, useModal } from './hooks';
 // Constantes
