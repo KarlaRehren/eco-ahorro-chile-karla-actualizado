@@ -89,8 +89,7 @@ src/
 ├── utils/
 │   └── database.js      # Base de datos de respuestas
 ├── App.jsx              # Componente principal
-├── main.jsx             # Punto de entrada React
-└── style-backup.css     # ⚠️ Respaldo del CSS original
+└── main.jsx             # Punto de entrada React
 ```
 
 ## 🔧 Tecnologías Utilizadas
