@@ -68,20 +68,29 @@ npm run preview
 
 ```
 src/
-├── components/           # Componentes React
-│   ├── Header.jsx       # Encabezado de la aplicación
-│   ├── ActionButtons.jsx # Botones de acciones rápidas
-│   ├── ChatArea.jsx     # Área de chat principal
-│   ├── Message.jsx      # Componente de mensaje individual
-│   ├── InputSection.jsx # Sección de entrada de texto
-│   ├── Sidebar.jsx      # Barra lateral con información
-│   ├── ConsultaModal.jsx # Modal de consulta gratuita
-│   └── TypingIndicator.jsx # Indicador de escritura
+├── components/           # Componentes React (vacío - usando módulos)
+├── modules/             # Módulos organizados por funcionalidad
+│   ├── layout/          # Header, Sidebar
+│   ├── chat/            # Chat, Mensajes, Input
+│   └── consultation/    # Modal de consulta
+├── hooks/               # Hooks personalizados
+│   ├── useChat.js       # Lógica del chat
+│   └── useModal.js      # Lógica de modales
+├── constants/           # Constantes de la aplicación
+├── styles/              # 🆕 CSS MODULAR ORGANIZADO
+│   ├── index.js         # Importación central de estilos
+│   ├── variables.css    # Variables CSS globales
+│   ├── main.css         # Utilidades y estilos especiales
+│   └── modules/         # Módulos CSS específicos
+│       ├── comunes.css  # Base, reset y utilidades
+│       ├── layout.css   # Header, sidebar, estructura
+│       ├── chat.css     # Chat, mensajes, input
+│       └── consulta.css # Modal y formularios
 ├── utils/
 │   └── database.js      # Base de datos de respuestas
 ├── App.jsx              # Componente principal
 ├── main.jsx             # Punto de entrada React
-└── style.css            # Estilos CSS
+└── style-backup.css     # ⚠️ Respaldo del CSS original
 ```
 
 ## 🔧 Tecnologías Utilizadas
@@ -114,15 +123,24 @@ src/
 
 ## 🎨 Personalización
 
-### Colores
-Los colores principales se definen en `src/style.css`:
+### Colores y Variables CSS
+Los colores y variables principales se definen en `src/styles/variables.css`:
 ```css
 :root {
-  --primary: #0288D1;    /* Azul principal */
-  --accent: #1B5E20;     /* Verde de acento */
-  --bg: #FAFAFA;         /* Fondo */
+  --primary: #0288D1;      /* Azul principal */
+  --accent: #1B5E20;       /* Verde de acento */
+  --bg: #FAFAFA;           /* Fondo */
+  --spacing-md: 1rem;      /* Espaciado medio */
+  --border-radius: 8px;    /* Radio de bordes */
 }
 ```
+
+### CSS Modular
+- **Variables**: `src/styles/variables.css` - Colores, espaciado, tipografía
+- **Layout**: `src/styles/modules/layout.css` - Header, sidebar, estructura
+- **Chat**: `src/styles/modules/chat.css` - Mensajes, input, botones
+- **Modal**: `src/styles/modules/consulta.css` - Formularios y modales
+- **Base**: `src/styles/modules/comunes.css` - Reset, utilidades comunes
 
 ### Agregar Nuevas Respuestas
 Edita `src/utils/database.js` para agregar nuevos temas o respuestas.
@@ -143,6 +161,14 @@ Edita `src/utils/database.js` para agregar nuevos temas o respuestas.
 - ✅ Base de datos de respuestas intacta
 - ✅ Modal de consultas funcionando
 - ✅ Diseño responsivo mantenido
+
+### 🆕 Mejoras de Arquitectura CSS (v2.0):
+- ✅ **CSS Modular**: Separación de ~6000 líneas en módulos organizados
+- ✅ **Variables CSS**: Colores, espaciado y tipografía centralizados
+- ✅ **Eliminación de Duplicación**: Código CSS reutilizable
+- ✅ **Mantenibilidad**: Fácil localización y modificación de estilos
+- ✅ **Escalabilidad**: Estructura preparada para crecimiento
+- ✅ **Performance**: Optimización de carga con Vite
 
 ## 📝 Scripts Disponibles
 
