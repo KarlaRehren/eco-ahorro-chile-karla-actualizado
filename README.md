@@ -1,218 +1,272 @@
 # 🇨🇱⚡ Eco Ahorro Chile - Asistente Virtual React
 
 [![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.0.8-646CFF.svg)](https://vitejs.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5.4.20-646CFF.svg)](https://vitejs.dev/)
+[![CSS Modules](https://img.shields.io/badge/CSS_Modules-Enabled-green.svg)](https://github.com/css-modules/css-modules)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Un asistente virtual interactivo para consultas de consumo eléctrico en Chile, desarrollado con React y tecnologías modernas.
+Un asistente virtual interactivo para consultas de consumo eléctrico en Chile, desarrollado con React y arquitectura modular profesional.
 
 ## 🎯 Demo
 
 🌐 **Live Demo**: [https://karlarehren.github.io/eco-ahorro-chile-react/](https://karlarehren.github.io/eco-ahorro-chile-react/)
 
-> La aplicación se despliega automáticamente en GitHub Pages cuando se realizan cambios en la rama main. 
-> 
-> **Nota**: Si es la primera vez, activa GitHub Pages en Settings → Pages → Source: GitHub Actions
-
-## 📸 Screenshots
-
-*La aplicación incluye una interfaz moderna y responsiva con chat interactivo y consultas especializadas.*
-
 ## 🚀 Características
 
-- **Interfaz Reactiva**: Desarrollado con React para una experiencia moderna y fluida
-- **Chat Interactivo**: Comunicación en tiempo real con el asistente virtual
-- **Base de Datos de Conocimiento**: Información especializada sobre el sector eléctrico chileno
-- **Modal de Consultas**: Sistema para realizar consultas gratuitas
-- **Diseño Responsivo**: Compatible con dispositivos móviles y de escritorio
-- **Componentes Modulares**: Arquitectura React limpia y mantenible
+### 🎨 **Arquitectura Profesional**
+- **CSS Modules**: Estilos encapsulados por componente
+- **Estructura Modular**: Componentes organizados por funcionalidad
+- **Hooks Personalizados**: Lógica reutilizable y limpia
+- **Variables CSS**: Sistema de diseño consistente
 
-## 📋 Requisitos Previos
-
-Antes de ejecutar este proyecto, asegúrate de tener instalado:
-
-- [Node.js](https://nodejs.org/) (versión 16 o superior)
-- npm (incluido con Node.js)
-
-## 🛠️ Instalación
-
-1. **Instalar Node.js** (si no lo tienes):
-   - Ve a [https://nodejs.org/](https://nodejs.org/)
-   - Descarga e instala la versión LTS
-   - Reinicia tu terminal/VS Code
-
-2. **Instalar dependencias**:
-   ```bash
-   npm install
-   ```
-
-## 🎯 Ejecución
-
-### Modo Desarrollo
-```bash
-npm run dev
-```
-La aplicación se abrirá automáticamente en `http://localhost:3000`
-
-### Construir para Producción
-```bash
-npm run build
-```
-
-### Previsualizar Build de Producción
-```bash
-npm run preview
-```
+### 💬 **Funcionalidades**
+- **Chat Interactivo**: Comunicación en tiempo real con IA
+- **Base de Conocimiento**: Información especializada del sector eléctrico chileno
+- **Modal de Consultas**: Sistema de consultas gratuitas con validación
+- **Diseño Responsivo**: Compatible con todos los dispositivos
+- **Indicadores Visuales**: Typing indicators y animaciones suaves
 
 ## 📁 Estructura del Proyecto
 
 ```
 src/
-├── components/          # 🆕 COMPONENTES ORGANIZADOS (Patrón profesional)
-│   ├── index.js         # Exportaciones principales
-│   ├── Layout/          # Componentes de diseño
-│   │   ├── Header.jsx
-│   │   ├── Header.module.css
-│   │   ├── Sidebar.jsx
-│   │   ├── Sidebar.module.css
-│   │   └── index.js
-│   ├── Chat/            # Componentes de chat
+├── components/          # 🆕 COMPONENTES PROFESIONALES
+│   ├── Layout/          # Header + Sidebar
+│   │   ├── Header.jsx + Header.module.css
+│   │   └── Sidebar.jsx + Sidebar.module.css
+│   ├── Chat/            # Funcionalidad de chat
 │   │   ├── ActionButtons.jsx + .module.css
 │   │   ├── ChatArea.jsx + .module.css
 │   │   ├── InputSection.jsx + .module.css
 │   │   ├── Message.jsx + .module.css
-│   │   ├── TypingIndicator.jsx + .module.css
-│   │   └── index.js
-│   └── Consultation/    # Componentes de consulta
-│       ├── ConsultaModal.jsx + .module.css
-│       └── index.js
+│   │   └── TypingIndicator.jsx + .module.css
+│   └── Consultation/    # Modal de consulta
+│       └── ConsultaModal.jsx + .module.css
 ├── hooks/               # Hooks personalizados
 │   ├── useChat.js       # Lógica del chat
-│   └── useModal.js      # Lógica de modales
+│   ├── useModal.js      # Manejo de modales
+│   └── index.js
 ├── constants/           # Constantes de la aplicación
-├── styles/              # CSS GLOBAL (solo base y utilidades)
+│   └── index.js         # APP_CONFIG, TYPING_DELAY, etc.
+├── styles/              # CSS GLOBAL
 │   ├── index.js         # Importación de estilos globales
-│   ├── variables.css    # Variables CSS globales
+│   ├── variables.css    # Variables CSS (colores, spacing, etc.)
 │   ├── main.css         # Utilidades y estilos especiales
 │   └── modules/
-│       └── comunes.css  # Base, reset y utilidades compartidas
+│       └── comunes.css  # Base, reset y utilidades
 ├── utils/
 │   └── database.js      # Base de datos de respuestas
 ├── App.jsx              # Componente principal
 └── main.jsx             # Punto de entrada React
 ```
 
-## 🔧 Tecnologías Utilizadas
+## 🛠️ Instalación y Configuración
 
-- **React 18**: Biblioteca de JavaScript para interfaces de usuario
-- **Vite**: Herramienta de construcción rápida
-- **CSS3**: Estilos con variables CSS y diseño responsivo
-- **JavaScript ES6+**: Sintaxis moderna de JavaScript
+### Requisitos Previos
+- [Node.js](https://nodejs.org/) (versión 16 o superior)
+- npm (incluido con Node.js)
 
-## ✨ Funcionalidades
+### Instalación
+```bash
+# Clonar el repositorio
+git clone https://github.com/KarlaRehren/eco-ahorro-chile-react.git
 
-### Chat Interactivo
-- Mensajes en tiempo real
-- Indicador de escritura
-- Formateo de texto con markdown
-- Historial de conversación
+# Navegar al directorio
+cd eco-ahorro-chile-react
 
-### Temas Disponibles
-- **Reclamos Eléctricos**: Información sobre cómo realizar reclamos
-- **Subsidios Estatales**: Detalles sobre subsidios disponibles
-- **Paneles Solares**: Guía completa sobre energía solar
-- **Derechos del Consumidor**: Información legal y derechos
-- **Tips de Ahorro**: Consejos para reducir el consumo
-- **Consulta Gratuita**: Formulario para consultas personalizadas
+# Instalar dependencias
+npm install
+```
 
-### Interfaz Responsiva
-- Diseño adaptable a móviles, tablets y escritorio
-- Sidebar colapsable en dispositivos pequeños
-- Optimizado para accesibilidad
+### Ejecución
 
-## 🎨 Personalización
+#### Modo Desarrollo
+```bash
+npm run dev
+```
+Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
 
-### Colores y Variables CSS
-Los colores y variables principales se definen en `src/styles/variables.css`:
-```css
-:root {
-  --primary: #0288D1;      /* Azul principal */
-  --accent: #1B5E20;       /* Verde de acento */
-  --bg: #FAFAFA;           /* Fondo */
-  --spacing-md: 1rem;      /* Espaciado medio */
-  --border-radius: 8px;    /* Radio de bordes */
+#### Construcción para Producción
+```bash
+npm run build
+```
+
+#### Previsualizar Build
+```bash
+npm run preview
+```
+
+## 🎨 CSS Modules y Sistema de Estilos
+
+### Arquitectura CSS Profesional
+
+Este proyecto utiliza **CSS Modules** para encapsular estilos por componente, eliminando conflictos y mejorando la mantenibilidad.
+
+#### ✅ **Ventajas Implementadas:**
+- **Encapsulación**: Cada componente tiene sus propios estilos
+- **No hay conflictos**: Nombres de clases únicos automáticamente
+- **Mantenibilidad**: Fácil localización y modificación
+- **Escalabilidad**: Nuevos componentes = nuevos módulos CSS
+- **Performance**: Vite optimiza automáticamente la carga
+
+#### 🎯 **Patrón de Uso:**
+```jsx
+// Componente Header.jsx
+import styles from './Header.module.css';
+
+export default function Header() {
+  return (
+    <header className={styles.header}>
+      <h1 className={styles.title}>Eco Ahorro Chile</h1>
+    </header>
+  );
 }
 ```
 
-### CSS Modules & Estilos
-- **Variables Globales**: `src/styles/variables.css` - Colores, espaciado, tipografía
-- **CSS Modules**: Cada componente tiene su archivo `.module.css` co-localizado
-- **Layout**: `src/components/Layout/*.module.css` - Estilos de Header y Sidebar  
-- **Chat**: `src/components/Chat/*.module.css` - Estilos de cada componente de chat
-- **Consulta**: `src/components/Consultation/*.module.css` - Estilos del modal
-- **Base Común**: `src/styles/modules/comunes.css` - Reset y utilidades compartidas
+```css
+/* Header.module.css */
+.header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border-color);
+}
 
-### Agregar Nuevas Respuestas
-Edita `src/utils/database.js` para agregar nuevos temas o respuestas.
+.title {
+  color: var(--primary);
+  font-size: var(--font-size-lg);
+}
+```
 
-## 🚀 Comparación con la Versión Original
+### Variables CSS Globales
 
-### Mejoras en React:
-- **Estado Reactivo**: Manejo automático del estado de la aplicación
-- **Componentes Reutilizables**: Código más organizado y mantenible
-- **Mejor Performance**: Renderizado optimizado con React
-- **Desarrollo Moderno**: Hot reloading y herramientas de desarrollo
-- **Tipado**: Preparado para TypeScript si se desea migrar
-- **Testing**: Facilita la implementación de pruebas unitarias
+```css
+:root {
+  /* Colores */
+  --primary: #2E7D32;      /* Verde principal */
+  --secondary: #388E3C;    /* Verde secundario */
+  --accent: #1B5E20;       /* Verde de acento */
+  --bg: #FAFAFA;           /* Fondo */
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  
+  /* Tipografía */
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  
+  /* Otros */
+  --border-radius: 8px;
+  --transition-fast: 0.2s ease;
+}
+```
 
-### Migración desde Vanilla JavaScript:
-- ✅ Toda la funcionalidad original preservada
-- ✅ Mismos estilos y diseño
-- ✅ Base de datos de respuestas intacta
-- ✅ Modal de consultas funcionando
-- ✅ Diseño responsivo mantenido
+## 🧩 Hooks Personalizados
 
-### 🆕 Mejoras de Arquitectura (v3.0):
-- ✅ **CSS Modules**: Estilos encapsulados por componente (eliminación de conflictos)
-- ✅ **Estructura Profesional**: Patrón de componentes estándar de la industria
-- ✅ **Eliminación de Duplicados**: ~476 líneas de CSS duplicado removidas
-- ✅ **Co-localización**: Cada componente con su archivo CSS al lado
-- ✅ **Variables CSS**: Colores, espaciado y tipografía centralizados
-- ✅ **Mantenibilidad**: Fácil localización y modificación de estilos
-- ✅ **Escalabilidad**: Estructura preparada para crecimiento
-- ✅ **Performance**: Optimización de carga con Vite
+### useChat Hook
+```jsx
+import { useChat } from './hooks';
 
-## 📝 Scripts Disponibles
+function App() {
+  const { 
+    messages, 
+    isTyping, 
+    addMessage, 
+    sendMessage, 
+    processQuery 
+  } = useChat();
+  
+  // Usar en el componente...
+}
+```
 
-- `npm run dev` - Inicia el servidor de desarrollo
-- `npm run build` - Construye la aplicación para producción
-- `npm run preview` - Previsualiza el build de producción
-- `npm run serve` - Sirve la aplicación construida
+### useModal Hook
+```jsx
+import { useModal } from './hooks';
 
-## 🔍 Solución de Problemas
+function App() {
+  const { 
+    isOpen, 
+    openModal, 
+    closeModal 
+  } = useModal();
+  
+  // Controlar modales...
+}
+```
 
-### Error de npm no reconocido:
-1. Instala Node.js desde [nodejs.org](https://nodejs.org/)
-2. Reinicia VS Code/terminal
-3. Verifica con: `node --version` y `npm --version`
+## 📱 Responsive Design
 
-### Puerto 3000 ocupado:
-- Vite automáticamente usará el siguiente puerto disponible
-- O especifica uno diferente en `vite.config.js`
+El diseño se adapta automáticamente a diferentes dispositivos:
+
+- **📱 Mobile**: Hasta 600px
+- **📲 Tablet**: 601px - 1024px  
+- **💻 Desktop**: 1025px - 1399px
+- **🖥️ Large Desktop**: 1400px+
+
+## 🔧 Tecnologías Utilizadas
+
+- **React 18.2.0**: Biblioteca para interfaces de usuario
+- **Vite 5.4.20**: Build tool y desarrollo rápido
+- **CSS Modules**: Estilos encapsulados
+- **JavaScript ES6+**: Características modernas del lenguaje
+- **CSS3**: Variables CSS, Grid, Flexbox, Animaciones
+
+## 🎯 Migración y Refactoring Completado
+
+### ✅ Fases de Mejora Implementadas:
+
+#### **Fase 1: CSS Modularización**
+- ➜ Dividir ~6000 líneas de CSS monolítico
+- ➜ Crear 8 módulos CSS organizados por funcionalidad
+- ➜ Implementar variables CSS centralizadas
+
+#### **Fase 2: CSS Modules**
+- ➜ Implementar CSS Modules por componente
+- ➜ Encapsular estilos para evitar conflictos
+- ➜ Co-localizar CSS con componentes JSX
+
+#### **Fase 3: Eliminación de Duplicados**
+- ➜ Remover ~476 líneas de CSS duplicado
+- ➜ Optimizar imports y exportaciones
+- ➜ Limpiar archivos innecesarios
+
+#### **Fase 4: Restructuración Profesional**
+- ➜ Organizar componentes según patrón de equipo
+- ➜ Implementar importaciones directas
+- ➜ Eliminar archivos `index.js` redundantes
+
+### 🎉 **Resultado Final:**
+- **Arquitectura Profesional**: Patrón estándar de la industria
+- **Mantenibilidad**: Fácil localización y modificación
+- **Escalabilidad**: Estructura preparada para crecimiento
+- **Performance**: Optimizada con Vite y CSS Modules
+- **Consistencia**: Siguiendo mejores prácticas del equipo
+
+## 🤝 Contribuir
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 🐛 Reportar Problemas
+
+Si encuentras algún bug o tienes una sugerencia, por favor abre un [issue](https://github.com/KarlaRehren/eco-ahorro-chile-react/issues).
 
 ## 📄 Licencia
 
-MIT License - Ver archivo LICENSE para más detalles.
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-## 👥 Contribuciones
+## 👥 Equipo de Desarrollo
 
-Las contribuciones son bienvenidas. Por favor:
-1. Fork el proyecto
-2. Crea una rama para tu feature
-3. Commit tus cambios
-4. Push a la rama
-5. Abre un Pull Request
+- **Karla Rehren** - Desarrollo Principal
+- **Equipo de Revisión** - Mentores y profesores
+- **Compañeros de Equipo** - Revisión de código y patrones
 
 ---
 
-**Desarrollado con ❤️ para ayudar a los consumidores eléctricos de Chile 🇨🇱⚡**
+⚡ **Desarrollado con** ❤️ **para el sector eléctrico chileno** 🇨🇱
