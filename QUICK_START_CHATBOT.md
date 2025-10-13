@@ -1,29 +1,36 @@
 # 🤖 Chat Interactivo - Integración Rápida
 
-> **Componente de chatbot profesional desarrollado por [Karla Rehren](https://github.com/KarlaRehren/eco-ahorro-chile-react)**  
+> **Componente de chatbot profesional desarrollado por [Karla Rehren](https://github.com/KarlaRehren/eco-ahorro-chile-karla-actualizado)**  
 > Listo para integrar en proyectos React con CSS Modules
 
 ## ⚡ Quick Start
 
 ### 1️⃣ **Obtener Archivos**
 ```bash
-# Clonar repo de Karla
-git clone https://github.com/KarlaRehren/eco-ahorro-chile-react.git
-cd eco-ahorro-chile-react
-git checkout feature/chatbot-resiliente
+# Clonar repositorio del chatbot
+git clone https://github.com/KarlaRehren/eco-ahorro-chile-karla-actualizado.git
+cd eco-ahorro-chile-karla-actualizado
 
-# Ver componentes disponibles
+# Ver componentes disponibles (rama main tiene todo listo)
 ls src/components/Chat/
+ls src/config/
 ```
 
 ### 2️⃣ **Copiar a Tu Proyecto**
 ```bash
-# Archivos necesarios
-src/components/Chat/          # 📁 Componentes del chat
-src/hooks/useChat.js          # 🎣 Lógica del chat  
-src/hooks/useModal.js         # 🎣 Control de modales
-src/utils/database.js         # 🗄️ Base de conocimiento
-src/config/features.js        # ⚙️ Configuración
+# Copiar archivos necesarios del chatbot a tu proyecto
+cp -r eco-ahorro-chile-karla-actualizado/src/components/Chat/ tu-proyecto/src/components/
+cp eco-ahorro-chile-karla-actualizado/src/hooks/useChat.js tu-proyecto/src/hooks/
+cp eco-ahorro-chile-karla-actualizado/src/hooks/useModal.js tu-proyecto/src/hooks/
+cp eco-ahorro-chile-karla-actualizado/src/utils/database.js tu-proyecto/src/utils/
+cp eco-ahorro-chile-karla-actualizado/src/config/features.js tu-proyecto/src/config/
+
+# Archivos incluidos:
+# 📁 src/components/Chat/      - Componentes del chatbot
+# 🎣 src/hooks/useChat.js      - Lógica del chat  
+# 🎣 src/hooks/useModal.js     - Control de modales
+# 🗄️ src/utils/database.js    - Base de conocimiento
+# ⚙️ src/config/features.js    - Configuración resiliente
 ```
 
 ### 3️⃣ **Integrar en App.jsx**
@@ -141,10 +148,11 @@ const buttons = [
 
 ## 📞 Soporte
 
-- **🔗 Repo Original**: [eco-ahorro-chile-react](https://github.com/KarlaRehren/eco-ahorro-chile-react)
-- **📌 Rama**: `feature/chatbot-resiliente`  
+- **🔗 Repositorio**: [eco-ahorro-chile-karla-actualizado](https://github.com/KarlaRehren/eco-ahorro-chile-karla-actualizado)
+- **📌 Rama**: `main` (todo listo en rama principal)  
 - **👩‍💻 Desarrolladora**: Karla Rehren
-- **📖 Docs Completas**: Ver `INTEGRACION_CHATBOT_EQUIPO.md`
+- **📖 Docs Completas**: Ver `INTEGRACION_CHATBOT_EQUIPO.md` en el repo
+- **🚀 Demo Live**: [Ver chatbot funcionando](https://karlarehren.github.io/eco-ahorro-chile-karla-actualizado/)
 
 ## ✅ Checklist
 

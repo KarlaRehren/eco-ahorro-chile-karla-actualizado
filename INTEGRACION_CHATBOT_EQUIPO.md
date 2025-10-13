@@ -3,10 +3,11 @@
 ## 📋 Información del Componente
 
 **Desarrollado por**: Karla Rehren  
-**Repositorio**: [eco-ahorro-chile-react](https://github.com/KarlaRehren/eco-ahorro-chile-react)  
-**Rama con Chatbot**: `feature/chatbot-resiliente`  
+**Repositorio**: [eco-ahorro-chile-karla-actualizado](https://github.com/KarlaRehren/eco-ahorro-chile-karla-actualizado)  
+**Rama Principal**: `main` (chatbot incluido en rama principal)  
 **Estado**: ✅ Listo para integración  
 **Compatibilidad**: React 18+, CSS Modules, Vite  
+**Demo Live**: [Ver funcionando](https://karlarehren.github.io/eco-ahorro-chile-karla-actualizado/)  
 
 ## 🎯 Qué Incluye el Chatbot
 
@@ -47,28 +48,30 @@ config/
 
 #### **Opción A - Clonar Repo Completo (Recomendado)**
 ```bash
-# Clonar el repositorio de Karla
-git clone https://github.com/KarlaRehren/eco-ahorro-chile-react.git karla-chatbot
+# Clonar el repositorio actualizado de Karla
+git clone https://github.com/KarlaRehren/eco-ahorro-chile-karla-actualizado.git karla-chatbot
 
-# Cambiar a la rama del chatbot
+# Entrar al directorio (todo está en rama main)
 cd karla-chatbot
-git checkout feature/chatbot-resiliente
 
 # Ver los archivos disponibles
 ls -la src/components/Chat/
 ls -la src/config/
+ls -la src/hooks/
 ```
 
 #### **Opción B - Descargar Archivos Específicos**
 ```bash
 # Desde su proyecto, agregar el repo de Karla como remote
-git remote add karla-repo https://github.com/KarlaRehren/eco-ahorro-chile-react.git
+git remote add karla-repo https://github.com/KarlaRehren/eco-ahorro-chile-karla-actualizado.git
 git fetch karla-repo
 
-# Cherry-pick solo los archivos del chatbot
-git checkout karla-repo/feature/chatbot-resiliente -- src/components/Chat/
-git checkout karla-repo/feature/chatbot-resiliente -- src/config/features.js
-git checkout karla-repo/feature/chatbot-resiliente -- src/utils/database.js
+# Cherry-pick solo los archivos del chatbot (desde main)
+git checkout karla-repo/main -- src/components/Chat/
+git checkout karla-repo/main -- src/config/features.js
+git checkout karla-repo/main -- src/utils/database.js
+git checkout karla-repo/main -- src/hooks/useChat.js
+git checkout karla-repo/main -- src/hooks/useModal.js
 ```
 
 ### **Paso 2: Copiar a Su Proyecto**
@@ -321,8 +324,10 @@ cp karla-chatbot/src/styles/variables.css src/styles/
 
 - **👩‍💻 Desarrolladora**: Karla Rehren  
 - **📧 Consultas**: Usar Issues en el repo de Karla
-- **📖 Documentación Completa**: Ver README.md en el repo principal
-- **🔄 Actualizaciones**: Revisar la rama `feature/chatbot-resiliente`
+- **� Repositorio**: https://github.com/KarlaRehren/eco-ahorro-chile-karla-actualizado
+- **�📖 Documentación Completa**: Ver README.md en el repo principal
+- **🚀 Demo Live**: https://karlarehren.github.io/eco-ahorro-chile-karla-actualizado/
+- **🔄 Actualizaciones**: Revisar commits en rama `main`
 
 ## 🎯 Checklist de Integración
 
