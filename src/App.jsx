@@ -5,11 +5,14 @@ import Sidebar from './components/Layout/Sidebar';
 import ActionButtons from './components/Chat/ActionButtons';
 import ChatArea from './components/Chat/ChatArea';
 import InputSection from './components/Chat/InputSection';
+import ChatbotContainer from './components/Chat/ChatbotContainer';
 import ConsultaModal from './components/Consultation/ConsultaModal';
 // Hooks personalizados
 import { useChat, useModal } from './hooks';
 // Constantes
 import { APP_CONFIG } from './constants';
+// Configuración de features
+import { FEATURES } from './config/features';
 
 function App() {
   // Usar hooks personalizados
@@ -65,23 +68,30 @@ function App() {
       <Header />
       <div className="content-wrapper">
         <div className="chat-column">
-          <ActionButtons 
-            onButtonClick={handleButtonClick}
-            onConsultaClick={openModal}
-          />
-          <ChatArea 
-            messages={messages}
-            isTyping={isTyping}
-          />
-          <InputSection onSendMessage={handleSendMessage} />
+          {/* Chatbot con sistema de fallback resiliente */}
+          <ChatbotContainer>
+            <ActionButtons 
+              onButtonClick={handleButtonClick}
+              onConsultaClick={openModal}
+            />
+            <ChatArea 
+              messages={messages}
+              isTyping={isTyping}
+            />
+            <InputSection onSendMessage={handleSendMessage} />
+          </ChatbotContainer>
         </div>
+        {/* Sidebar siempre disponible independientemente del chatbot */}
         <Sidebar />
       </div>
-      <ConsultaModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        onSubmit={handleConsultaSubmit}
-      />
+      {/* Modal de consulta - funciona independientemente del chatbot */}
+      {FEATURES.CONSULTATION_MODAL && (
+        <ConsultaModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          onSubmit={handleConsultaSubmit}
+        />
+      )}
     </div>
   );
 }
