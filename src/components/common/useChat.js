@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
-import { getResponse } from '../utils/database';
-import { TYPING_DELAY } from '../constants';
+import { getResponse } from './database';
+import { TYPING_DELAY } from './index';
 
 // Hook personalizado para manejar el chat
 export const useChat = () => {

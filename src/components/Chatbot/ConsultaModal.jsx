@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './ConsultaModal.module.css';
+import styles from '../styles/ConsultaModal.module.css';
 
 const ConsultaModal = ({ isOpen, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({

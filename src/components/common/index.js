@@ -1,3 +1,12 @@
+// Exportar hooks
+export { useChat } from './useChat';
+export { useModal } from './useModal';
+export { useChatbotHandlers } from './useChatbotHandlers';
+export { useFormValidation } from './useFormValidation';
+
+// Exportar utilidades
+export * from './regions';
+
 // Constantes de la aplicación
 export const APP_CONFIG = {
   name: 'Eco Ahorro Chile',

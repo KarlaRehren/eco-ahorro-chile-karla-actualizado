@@ -2,6 +2,45 @@
    MAIN CSS - ESTILOS ESPECIALES Y UTILIDADES ADICIONALES
    ========================================================================== */
 
+/* Importar variables CSS */
+@import './variables.css';
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Clases globales para layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.chat-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  min-height: 80vh;
+}
+
 /* Estilos especiales para accesibilidad */
 @media (prefers-contrast: high) {
   .action-btn,

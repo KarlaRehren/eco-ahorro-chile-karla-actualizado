@@ -1,0 +1,224 @@
+/* ==========================================================================
+   ESTILOS COMUNES MODULARES - CLASES REUTILIZABLES
+   ========================================================================== */
+
+/* Layout principal */
+.mainContainer {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentWrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.chatColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+/* Botones comunes */
+.actionBtn {
+  background: var(--primary);
+  color: var(--white);
+  border: 2px solid var(--primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 20px;
+  padding: 0.8rem;
+  min-height: 50px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.actionBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.actionBtn:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 136, 209, 0.3);
+}
+
+.actionBtn:hover::before {
+  left: 100%;
+}
+
+.actionBtn:active {
+  transform: translateY(0);
+}
+
+.actionBtn:disabled {
+  background: var(--disabled);
+  border-color: var(--disabled);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.actionBtn:disabled::before {
+  display: none;
+}
+
+/* Botón especial */
+.primaryBtn {
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.primaryBtn:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+/* Utilidades de texto */
+.textPrimary {
+  color: var(--text-primary);
+}
+
+.textSecondary {
+  color: var(--text-secondary);
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.textBold {
+  font-weight: 600;
+}
+
+/* Utilidades de espaciado */
+.marginXs {
+  margin: var(--spacing-xs);
+}
+
+.marginSm {
+  margin: var(--spacing-sm);
+}
+
+.marginMd {
+  margin: var(--spacing-md);
+}
+
+.marginLg {
+  margin: var(--spacing-lg);
+}
+
+.paddingXs {
+  padding: var(--spacing-xs);
+}
+
+.paddingSm {
+  padding: var(--spacing-sm);
+}
+
+.paddingMd {
+  padding: var(--spacing-md);
+}
+
+.paddingLg {
+  padding: var(--spacing-lg);
+}
+
+/* Utilidades de flexbox */
+.flex {
+  display: flex;
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+.flexCenter {
+  justify-content: center;
+  align-items: center;
+}
+
+.flexBetween {
+  justify-content: space-between;
+}
+
+.flexEnd {
+  justify-content: flex-end;
+}
+
+/* Estados de carga */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Animaciones */
+.fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.slideIn {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scrollbar personalizada */
+.customScrollbar::-webkit-scrollbar {
+  width: 7px;
+}
+
+.customScrollbar::-webkit-scrollbar-track {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.customScrollbar::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 4px;
+}
+
+.customScrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

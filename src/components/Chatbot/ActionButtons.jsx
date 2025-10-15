@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ActionButtons.module.css';
+import styles from '../styles/ActionButtons.module.css';
 
 const ActionButtons = ({ onButtonClick, onConsultaClick }) => {
   const buttons = [
